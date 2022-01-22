@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         borderSide: BorderSide(
             color: const Color(0xFFbbbbbb), width: 2));
     const linkTextStyle = TextStyle(
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: FontWeight.bold,
         color: Color(0xFF0079D0)
     );
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           body:Container(
             width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 50),
+            padding: EdgeInsets.symmetric(horizontal: 50), // отступ по краям
             child: SingleChildScrollView( // Добавили скроллинг
               child: Column(children: [
                 SizedBox(height: 150,), // Отбивка
@@ -34,7 +34,9 @@ class MyApp extends StatelessWidget {
                 SizedBox(height: 20,), // Отбивка
 
                 const Text('Введите логин в виде 10 цифр номера телефона',
-                  style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, 0.6)),),
+                  style: TextStyle(fontSize: 18, color: Color.fromRGBO(0, 0, 0, 0.6)),
+                    textAlign: TextAlign.center, // Расположение текста по центру
+                ),
 
                 SizedBox(height: 20,), // Отбивка
 
@@ -44,6 +46,7 @@ class MyApp extends StatelessWidget {
                     fillColor: Color(0xffeceff1),
                     enabledBorder: borderStyle,
                     focusedBorder: borderStyle,
+                    hintText: '+7', // hintText: текст-подсказка, исчезает при вводе
                     labelText: 'Телефон',
                   ),
                   keyboardType: TextInputType.phone,
@@ -64,10 +67,12 @@ class MyApp extends StatelessWidget {
 
                 SizedBox(height: 28,), // Отбивка
 
-                SizedBox(width: 154, height: 42, child:
+                SizedBox(width: 180, height: 50, child:
                 ElevatedButton(onPressed: () {},
-                  child: Text('Войти'),
+                  child: const Text('Войти'),
                   style: ElevatedButton.styleFrom(
+                    // Изменить размер текста внутри кнопки textStyle: const TextStyle(fontSize: 20),
+                      textStyle: const TextStyle(fontSize: 20),
                       primary: Color(0xFF0079D0),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(36.0),
@@ -83,7 +88,7 @@ class MyApp extends StatelessWidget {
 
                 SizedBox(height: 20,), // Отбивка
 
-                InkWell(child: const Text('Забыли пароль', style: linkTextStyle,
+                InkWell(child: const Text('Забыли пароль?', style: linkTextStyle,
                 ), onTap: () {}),
               ],),
             ),
