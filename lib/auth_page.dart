@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           body:Container(
             width: double.infinity,
             padding: EdgeInsets.symmetric(horizontal: 50),
-            child: SingleChildScrollView(
+            child: SingleChildScrollView( // Добавили скроллинг
               child: Column(children: [
                 SizedBox(height: 150,), // Отбивка
 
