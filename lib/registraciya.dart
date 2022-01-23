@@ -108,7 +108,7 @@ class MyApp extends StatelessWidget {
 
             SizedBox(height: 32,),  // Отбивка
 
-            // Кнопка отправить код
+            // Кнопка Отправить код
             SizedBox(width: 180, height: 50, child:
             ElevatedButton(onPressed: () {},
               child: const Text('Отправить код'),

@@ -10,10 +10,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     const borderStyle = OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(36)),
         borderSide: BorderSide(
-            color: const Color(0xFFbbbbbb), width: 2));
+            color: Color(0xFFbbbbbb), width: 2));
     const linkTextStyle = TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
@@ -23,15 +24,26 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
           body:Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/bg1.jpg'),
+                  fit: BoxFit.cover,
+              ),
+            ),
             width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 50), // отступ по краям
+            height: double.infinity,
+
+            padding: const EdgeInsets.symmetric(horizontal: 50), // отступ по краям
+
             child: SingleChildScrollView( // Добавили скроллинг
               child: Column(children: [
-                SizedBox(height: 150,), // Отбивка
+                const SizedBox(height: 150,), // Отбивка
 
-                SizedBox(width: 110, height: 84, child: Placeholder(),),
+                // Вставляем изображение, которое ограничили (обернули) размером SizedBox
+                const SizedBox(width: 110, height: 84,
+                  child: Image(image: AssetImage('assets/dart-logo.png'),),),
 
-                SizedBox(height: 20,), // Отбивка
+                const SizedBox(height: 20,), // Отбивка
 
                 const Text('Введите логин в виде 10 цифр номера телефона',
                   style: TextStyle(fontSize: 18, color: Color.fromRGBO(0, 0, 0, 0.6)),
