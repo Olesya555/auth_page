@@ -86,7 +86,7 @@ class _SwitchesDemoScreenState extends State<SwitchesDemoScreen> {
                   groupValue: _skillLevel,  // относится к какой группе
                   onChanged: _onSkillLevelChanged,
                 ),
-// оригинал кода 1 кнопки выглядел так, теперь иы это вынесли в отдельную функцию:
+// оригинал кода 1 кнопки выглядел так, теперь мы это вынесли в отдельную функцию:
 //                 onChanged: (SkillLevel? value) {  // обработчик нажатия
 //                   setState(() {
 //                     _skillLevel = value; // указываем, что нажатие становится нашим значением value

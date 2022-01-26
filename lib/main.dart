@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:auth_page/registraciya.dart';
 import 'package:auth_page/text_varianti_raboti.dart';
 import 'package:auth_page/pizza_calc_i_interactivnosti.dart';
+import 'package:auth_page/pizza_calc.dart';
 
 void main() {
-  runApp(const PizzaCalculatorScreen());
+  runApp(const PizzaCalc());
 }

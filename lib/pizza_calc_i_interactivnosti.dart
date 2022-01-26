@@ -42,7 +42,7 @@ class _PizzaCalculatorScreenState extends State<PizzaCalculatorScreen> {
         _cost += 40;
         break;
       case null: // заложен ещё вариант null, если пользователь ничего не выбрал,
-      // то автоматически ставится Sauce.hot
+      // то автоматически ставится Sauce.hot. Можно использовать default
         _sauce = Sauce.hot;
         break;
     }
@@ -82,31 +82,31 @@ class _PizzaCalculatorScreenState extends State<PizzaCalculatorScreen> {
             //Переключатель - крутой слайдер для выбора теста для пиццы
             SizedBox(
               width: 300,
-              child: SlidingSwitch(
-                value: false,
+              child: SlidingSwitch( // Прописывать в pubspec.yaml, он нестандартный
+                value: false, // всего 2 значения м.б. - это двусторонний слайдер
                 width: 300,
                 onChanged: (bool value) {
-                  _isSlinDough = value;
+                  _isSlinDough = value; // обработчиком передаем значения в калькулятор
                   setState(() {
                     _calcCost();
                   });
-                },
-                height: 30,
-                animationDuration: const Duration(milliseconds: 100),
-                onTap: () {},
+                },  // параметры "двойного слайдера"
+                height: 30, // высота
+                animationDuration: const Duration(milliseconds: 100), // Анимация, можно менять время
+                onTap: () {}, // обработчики нажатия - пустые, потому что логика задана в onChanged:
                 onDoubleTap: () {},
                 onSwipe: () {},
-                textOff: 'Обычное тесто',
-                textOn: 'Тонкое тесто',
-                colorOn: const Color(0xFFFFFFFF),
-                colorOff: const Color(0xF0FFFFFF),
-                background: const Color(0xFFECEFF1),
-                buttonColor: const Color(0xFF0079D0),
-                inactiveColor: const Color(0xFF636f7b),
+                textOff: 'Обычное тесто', // заголовки выбора. Выключено - обычное тесто
+                textOn: 'Тонкое тесто', // включено - тонкое тесто
+                colorOn: const Color(0xFFFFFFFF), // цвета. Цвет текста в состоянии включено
+                colorOff: const Color(0xF0FFFFFF), // -- // -- выключено
+                background: const Color(0xFFECEFF1), // цвет фона
+                buttonColor: const Color(0xFF0079D0), // цвет слайдера активный
+                inactiveColor: const Color(0xFF636f7b), //  цвет слайдера в неактивном состоянии
               ),
             ),
 
-      //Переключатель - крутой слайдер для выбора размера пиццы
+      //Переключатель - крутой слайдер для выбора размера пиццы //
                 const SizedBox(
                   height: 10,
                 ),
@@ -118,14 +118,16 @@ class _PizzaCalculatorScreenState extends State<PizzaCalculatorScreen> {
                   ),
                 SizedBox(
                     width: 300,
-                    child: SfSlider(
-                      min: 20,
-                      max: 60,
+                    child: SfSlider( // Это сам слайдер. Прописывать в pubspec.yaml, он нестандартный
+                      min: 20, // прописан минимум указания на слайдере
+                      max: 60, // прописан максимум указания на слайдере
                       value: _pizzaSize,
-                      interval: 20,
+                      interval: 20, // шаг интервала
                       showTicks: true,
                       showLabels: true,
-                      numberFormat: NumberFormat('## см'),
+                      numberFormat: NumberFormat('## см'), // спец. параметр NumberFormat,
+                      // я его отдельно import 'package:intl/intl.dart';
+                      // NumberFormat позволяет цифры на слайдере идентифицироваь как кол-во сантиметров
                       enableTooltip: false,
                       minorTicksPerInterval: 0,
                       stepSize: 20,
