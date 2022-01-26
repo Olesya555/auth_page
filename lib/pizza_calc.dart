@@ -1,4 +1,3 @@
-import 'package:auth_page/pizza_calc_i_interactivnosti.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_switch/sliding_switch.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
@@ -19,46 +18,50 @@ class _PizzaCalcState extends State<PizzaCalc> {
   bool _thinTesto = false; // Логическая переменная на тонкое тесто
   double _pizzaSize = 20; // Размер пиццы, по умолчанию 20 см.
   Sauce? _sauce = Sauce.hot; // соус, по умолчанию стоит hot
-  double _pizzaCost = 170; // стоимость пиццы при параметрах по умолчанию
+  double _pizzaCost = 0; // стоимость пиццы при параметрах по умолчанию
   bool _addCheese = false; // логическая переменная дополнительный сыр
 
   // алгоритмика вычисления стоимости пиццы.
   double? _pizzaCalcCost() {
 
+    // расчет по размеру
+    switch (_pizzaSize.round()) {
+      case 20:
+        _pizzaCost = 100;
+        break;
+      case 40:
+        _pizzaCost = 150;
+        break;
+      case 60:
+        _pizzaCost = 200;
+        break;
+    }
+
     if (_thinTesto == true) _pizzaCost += 50; // расчет по тесту
     if (_addCheese == true) _pizzaCost += 50; // расчет по сыру
 
-    // расчет по размеру
-    switch (_pizzaSize.round()) {
-      case 40:
-        _pizzaCost += 50;
-        break;
-      case 60:
-        _pizzaCost += 100;
-        break;
-      // default:
-      //   _pizzaCost;
-      //   break;
-    }
-
     // расчет по соусу
     switch (_sauce) {
+      case Sauce.hot:
+        _pizzaCost += 20;
+        break;
       case Sauce.sweet:
         _pizzaCost += 50;
         break;
       case Sauce.cheese:
         _pizzaCost += 40;
         break;
-      default:
-        _pizzaCost;
+      case null: // AS жалуется на то, что ноль не прописан в выборе.
+        _sauce = Sauce.hot;
         break;
     }
-   // return _pizzaCost;
+   return _pizzaCost;
   }
 
   void _onSauceChanged(Sauce? value) { // Функция принимает выбор пользователя
     setState(() {
       _sauce = value;
+      _pizzaCalcCost ();
     });
   }
 
@@ -168,6 +171,7 @@ class _PizzaCalcState extends State<PizzaCalc> {
                     value: Sauce.hot,
                     groupValue: _sauce,
                     onChanged: _onSauceChanged,
+                    visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
                   ),
 
                   const Divider( // Тонкая горизонтальная линия
@@ -180,7 +184,7 @@ class _PizzaCalcState extends State<PizzaCalc> {
                     value: Sauce.sweet,
                     groupValue: _sauce,
                     onChanged: _onSauceChanged,
-                  ),
+                    visualDensity: const VisualDensity(horizontal: 0, vertical: -4),),
 
                   const Divider( // Тонкая горизонтальная линия
                     color: Color(0xFFE8E8E8),
@@ -192,6 +196,7 @@ class _PizzaCalcState extends State<PizzaCalc> {
                     value: Sauce.cheese,
                     groupValue: _sauce,
                     onChanged: _onSauceChanged,
+                    visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
                   ),
 
                   const Divider( // Тонкая горизонтальная линия
@@ -203,7 +208,7 @@ class _PizzaCalcState extends State<PizzaCalc> {
                   SizedBox(width: 300,
                     child: Card(
                       elevation: 0,
-                      color: Color(0xFFF0F0F0),
+                      color: const Color(0xFFF0F0F0),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)
                       ),
@@ -267,7 +272,7 @@ class _PizzaCalcState extends State<PizzaCalc> {
                     style: ElevatedButton.styleFrom(
                       // Изменить размер текста внутри кнопки textStyle: const TextStyle(fontSize: 20),
                         textStyle: const TextStyle(fontSize: 20),
-                        primary: Color(0xFF0079D0),
+                        primary: const Color(0xFF0079D0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(36.0),
                         )
