@@ -207,7 +207,34 @@ class _PizzaCalculatorScreenState extends State<PizzaCalculatorScreen> {
                       ],
                   ),
                 ),
-                )
+                ),
+
+              // Выводим итоговую стоимость
+              Container(
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.only(top: 10, left: 20),
+                child: Text('Стоимость:',
+                    style: TextStyle(fontSize: 18, color: Color(0xFF000000))),
+              ),
+
+              // Цена в отдельной строке
+              SizedBox(
+                width: 300,
+                height: 50,
+
+                child: Card(
+                  elevation: 0,
+                  color: const Color(0xFFF0F0F0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                  child: Text('${_calcCost()} руб.',
+                  style: const TextStyle(fontSize: 32, color: Color(0xFF000000)),
+                  textAlign: TextAlign.center,
+                  ),
+
+                ),
+              )
+
           ],
         ),
         )
