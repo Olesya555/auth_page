@@ -132,7 +132,9 @@ class _PizzaCalcState extends State<PizzaCalc> {
                     alignment: Alignment.centerLeft,
                     padding: const EdgeInsets.only(left: 20),
                     child: const Text('Размер',
-                        style: TextStyle(fontSize: 18, color: Color(0xFF000000))),
+                        style: TextStyle(fontSize: 18, color: Color(0xFF000000),
+                            fontWeight: FontWeight.bold),
+                            ),
                   ),
                   SizedBox(
                     width: 300,
@@ -163,46 +165,44 @@ class _PizzaCalcState extends State<PizzaCalc> {
                     alignment: Alignment.centerLeft,
                     padding: const EdgeInsets.only(top: 10, left: 20),
                     child: const Text('Соус:',
-                        style: TextStyle(fontSize: 18, color: Color(0xFF000000))),
+                        style: TextStyle(fontSize: 18, color: Color(0xFF000000),
+                            fontWeight: FontWeight.bold)),
                   ),
 
                   RadioListTile<Sauce>(
                     title: const Text('Острый'),
-                    value: Sauce.hot,
-                    groupValue: _sauce,
-                    onChanged: _onSauceChanged,
+                    // Разворот на надпись слева, а кнопка справа controlAffinity:
+                    controlAffinity: ListTileControlAffinity.trailing,
+                    value: Sauce.hot, // значение
+                    groupValue: _sauce, // в какой группе находится
+                    onChanged: _onSauceChanged,  // обработчик
+                    // уменьшение расстояния между радиокнопками - visualDensity
                     visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
                   ),
 
-                  const Divider( // Тонкая горизонтальная линия
-                    color: Color(0xFFE8E8E8),
-                    thickness: 2,
-                  ),
+                  // Тонкая горизонтальная линия
+                  const Divider(color: Color(0xFFE8E8E8), thickness: 2,),
 
                   RadioListTile<Sauce>(
                     title: const Text('Кисло-сладкий'),
+                    controlAffinity: ListTileControlAffinity.trailing,
                     value: Sauce.sweet,
                     groupValue: _sauce,
                     onChanged: _onSauceChanged,
                     visualDensity: const VisualDensity(horizontal: 0, vertical: -4),),
 
-                  const Divider( // Тонкая горизонтальная линия
-                    color: Color(0xFFE8E8E8),
-                    thickness: 2,
-                  ),
+                  const Divider(color: Color(0xFFE8E8E8), thickness: 2,),
 
                   RadioListTile<Sauce>(
                     title: const Text('Сырный'),
+                    controlAffinity: ListTileControlAffinity.trailing,
                     value: Sauce.cheese,
                     groupValue: _sauce,
                     onChanged: _onSauceChanged,
                     visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
                   ),
 
-                  const Divider( // Тонкая горизонтальная линия
-                    color: Color(0xFFE8E8E8),
-                    thickness: 2,
-                  ),
+                  const Divider(color: Color(0xFFE8E8E8), thickness: 2,),
 
                   // Дополнительный сыр, переключатель
                   SizedBox(width: 300,
@@ -245,7 +245,8 @@ class _PizzaCalcState extends State<PizzaCalc> {
                     alignment: Alignment.centerLeft,
                     padding: const EdgeInsets.only(left: 25),
                     child: const Text('Стоимость:',
-                        style: TextStyle(fontSize: 18, color: Color(0xFF000000))),
+                        style: TextStyle(fontSize: 18, color: Color(0xFF000000),
+                            fontWeight: FontWeight.bold)),
                   ),
 
                   const SizedBox(height: 10,), // Отбивка
