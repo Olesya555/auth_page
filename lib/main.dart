@@ -12,5 +12,5 @@ import 'package:auth_page/pizza_calc_i_interactivnosti.dart';
 import 'package:auth_page/pizza_calc.dart';
 
 void main() {
-  runApp(const ThemesDemoApp());
+  runApp(const PizzaCalc());
 }

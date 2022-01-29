@@ -1,3 +1,4 @@
+import 'package:auth_page/screens/utils/global_theme_1_sama.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_switch/sliding_switch.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
@@ -68,6 +69,7 @@ class _PizzaCalcState extends State<PizzaCalc> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: globalTheme1(),
       home: Scaffold(
         appBar: AppBar(), // Панель AppBar - отбивка сверху
 
