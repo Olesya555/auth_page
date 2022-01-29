@@ -25,17 +25,18 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           body:Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(
+              image: DecorationImage( // Добавляем изображение на весь экран
                   image: AssetImage('assets/bg1.jpg'),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.cover, // Настраиваем расположение изображения - здесь cover - покрыть весь экран
               ),
             ),
-            width: double.infinity,
+            width: double.infinity, // ширина и высота - весь родительский элемент
             height: double.infinity,
 
             padding: const EdgeInsets.symmetric(horizontal: 50), // отступ по краям
 
             child: SingleChildScrollView( // Добавили скроллинг
+
               child: Column(children: [
                 const SizedBox(height: 150,), // Отбивка
 

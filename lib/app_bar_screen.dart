@@ -22,13 +22,13 @@ class _AppBarScreenState extends State<AppBarScreen> {
           title: const Text('Демо AppBar'),
           actions: <Widget> [  // здесь прописываем "дочек" - наши иконки и
             // текстовые кнопки. Они идут в массиве, списком. Скобки []
-            // вставляем кнопки-иконки, пока с заглушками на нажатие
+            // вставляем кнопки-иконки, пока с заглушками на нажатие () {}
             IconButton( // Иконка-кнопка
                 tooltip: 'Баланс', // tooltip: подсказка, срабатывает при "зажатии" на кнопку
                 onPressed: () {},
                 icon: const Icon(Icons.account_balance)),
 
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+            IconButton(onPressed:() {}, icon: const Icon(Icons.settings)),
 
             //Текстовая кнопка, без иконки
             TextButton(

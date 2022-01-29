@@ -81,10 +81,10 @@ class _NavigationDrawerScreenState extends State<NavigationDrawerScreen> {
 
               const Divider(), //разделитель без параметров - просто прямая полоса
 
-              Padding(
-                padding: const EdgeInsets.only(left: 15,),
-                child: const Text('Профиль'),
-              ), // Просто текст без кнопок
+              const Padding( // Просто текст без кнопок м. разместить в нужном месте через Padding
+                padding: EdgeInsets.only(left: 15,),
+                child: Text('Профиль'),
+              ),
 
               ListTile( // строка с иконкой
                 leading: const Icon(Icons.settings),
