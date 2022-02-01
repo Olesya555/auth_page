@@ -65,7 +65,6 @@ class _MyHomeState extends State<MyHome> {
   }
 
 
-
   @override
   Widget build(BuildContext context) {
 
@@ -99,46 +98,24 @@ class _MyHomeState extends State<MyHome> {
                       focusedBorder: borderStyle1,
                     ),
                     controller: myController,
+                    onSubmitted: (String _name) async {
+                      await showDialog<void>(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Спасибо'),
+                              content: Text(
+                                  'Здравствуйте, "$_name".'),
+                            );
+                          }
+                      );
+                    }
                   ),
                 ),
-                const SizedBox(height: 50,), // Отбивка
-
-                SizedBox(width: 180, height: 50,
-                  child: ElevatedButton(
-                    onPressed: _newName,
-
-                    child: const Text('Войти'),
-                      style: ElevatedButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 20),
-                      primary: Color(0xFF0079D0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(36.0),),
-                    ),
-                  ),
-
-                ),
-                const SizedBox(height: 20,), // Отбивка
-                Text(
-                  'Здравствуйте, $_name',
-                ),
-          ],
-          ),
+          ]
+        ),
         ),
       ),
     );
   }
 }
-
-  class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar( // Панель AppBar с заголовком, кнопкой и текстовой кнопкой
-        title: const Text('1 экран'), // просто заголовок без кнопок
-
-    ),
-    );
-  }
-  }

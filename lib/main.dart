@@ -8,6 +8,7 @@ import 'package:auth_page/screens/navigation_demo.dart';
 import 'package:auth_page/screens/navigation_drawer_screen.dart';
 import 'package:auth_page/screens/shared_pref_screen.dart';
 import 'package:auth_page/screens/theme_demo_screen.dart';
+import 'package:auth_page/screens/xranenie_dannix_Keys3_1_3v.dart';
 import 'package:auth_page/screens/widget_demo_screen.dart';
 import 'package:auth_page/screens/xranenie_dannix_keys3_1.dart';
 import 'package:flutter/material.dart';
@@ -18,5 +19,5 @@ import 'package:auth_page/pizza_calc.dart';
 
 
 void main() {
-  runApp(const StartScreen());
+  runApp(const StartScreen1());
 }
